@@ -5,4 +5,4 @@ mewtwo, 95, 102, 126, 99
 rattlebattletattlesaddle, 33, 83, 48, 45
 whooper, 54, 54, 49, 75
 brendon, 51, 63, 1, 76
-egg thing, 73, 87, 155, 155
+egg thing, 73, 87, 155, 155 
