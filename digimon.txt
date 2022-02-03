@@ -1,9 +1,9 @@
-rat, 60, 68, 71, 35
-tail boy, 42, 97, 22, 65
-blue rat, 71, 55, 34, 34
-mewtwo, 95, 102, 126, 99
-rattlebattletattlesaddle, 33, 83, 48, 45
-whooper, 54, 54, 49, 75
-brendon, 51, 63, 1, 76
-egg thing, 73, 87, 155, 155 
-mr wan g, 155, 155, 155, 155
+rat, 35, 55, 40, 50, 50, 90,
+tail boy, 78, 84, 78, 109, 85, 100,
+blue rat, 100, 50, 80, 60, 80, 50,
+mewtwo, 106, 110, 90, 154, 90, 130,
+rattlebattletattlesaddle, 40, 80, 35, 35, 45, 70,
+whooper, 55, 45, 45, 25, 25, 15,
+egg thing, 73, 87, 155, 155, 65, 30,
+mr. Wang, 120, 120, 120, 120, 120, 120,
+brendon, 51, 63, 1, 76, 1, 51,
