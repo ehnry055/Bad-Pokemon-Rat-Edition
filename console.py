@@ -1,4 +1,4 @@
-from characters import CharacterRoster, Character
+from pokemon import CharacterRoster, Character
 
 def main():
     # Loads the character roster from the file

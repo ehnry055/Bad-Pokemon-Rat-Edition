@@ -2,7 +2,7 @@
 from tkinter import *
 
 
-class Screen_CharacterSelection(Frame):
+class PokemonSelect(Frame):
     def __init__ (self, master, roster, callback_on_selected):
         super().__init__(master)
        # Save the CharacterRoster

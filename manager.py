@@ -1,9 +1,9 @@
 import tkinter
 
-from screen_battle import Screen_Battle
+from PokemonBattle import Screen_Battle
 from screen_prepare_to_battle import Screen_PrepareToBattle
-from screen_character_selection import Screen_CharacterSelection
-from characters import CharacterRoster
+from PokemonSelect import Screen_CharacterSelection
+from pokemon import CharacterRoster
 
 class BattleManager (object):
     

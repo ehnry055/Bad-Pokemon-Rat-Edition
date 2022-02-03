@@ -6,13 +6,13 @@ You may replace parts of this with your own implementation - but
 note the NEW comments for some key changes from the original Battle lab. 
 '''
 
-class Character (object):
+class monster(object):
     ''' 
     The maximum dexterity of any character is 100.  
     This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
     This is a class variable (shared among all Character objects), so it can be accessed with Character.MAX_DEXTERITY  
     '''
-    MAX_DEXTERITY = 100
+    MAX_DEXTERITY = 155
     
     def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image):
         ''' 
