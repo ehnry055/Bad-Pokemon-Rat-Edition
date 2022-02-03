@@ -1,8 +1,8 @@
 import tkinter
 
-from PokemonBattle import Screen_Battle
+from PokemonBattle import PokemonBattle
 from screen_prepare_to_battle import Screen_PrepareToBattle
-from PokemonSelect import Screen_CharacterSelection
+from PokemonSelect import PokemonSelect
 from pokemon import CharacterRoster
 
 class BattleManager (object):
@@ -30,7 +30,7 @@ class BattleManager (object):
         # Reads battle_characters.txt to create a CharacterRoster.
         self.character_roster = CharacterRoster ("battle_characters.txt")
         # Creates and displays a Character Selection screen
-        self.current_screen = Screen_CharacterSelection(master = self.root, 
+        self.current_screen = PokemonSelect(master = self.root, 
                                                         roster = self.character_roster, 
                                                         callback_on_selected = self.onclose_character_selection
                                                         )
@@ -86,7 +86,7 @@ class BattleManager (object):
         self.root.title ("Battle!")
 
         # Creates and displays a Battle screen
-        self.current_screen = Screen_Battle(master= self.root, 
+        self.current_screen = PokemonBattle(master= self.root, 
                                             player1 = self.player, 
                                             player2 = self.computer, 
                                             callback_on_exit = self.onclose_battle
