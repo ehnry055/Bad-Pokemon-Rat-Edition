@@ -7,12 +7,13 @@ class Application(Frame):
         self.createWidgets()
 
     def createWidgets(self):
-        self.header = Label(self, text = "Placecholder", font = ("Arial", 30)).grid(row = 0, column = 0, columnspan= 2, sticky = N)
+        self.header = Label(self, text = "Pick a character", font = ("Arial", 30)).grid(row = 0, column = 0, columnspan= 2, sticky = E)
+        
         
         
 def main():
     root = Tk()
-    root.title("Character Selection")
+    root.title("Select Gui")
     root.geometry("1920x1080")
     app = Application(root)
 
