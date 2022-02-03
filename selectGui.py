@@ -1,5 +1,5 @@
-import tkinter 
-class Application(tkinter.Frame):
+from tkinter import *
+class Application(Frame):
     def __init__(self, master):
         super(Application, self).__init__(master)
         #self.menu = menu()
@@ -7,11 +7,11 @@ class Application(tkinter.Frame):
         self.createWidgets()
 
     def createWidgets(self):
-        pass
-
+        self.header = Label(self, text = "Placecholder", font = ("Arial", 30)).grid(row = 0, column = 0, columnspan= 2, sticky = N)
+        
         
 def main():
-    root = tkinter.Tk()
+    root = Tk()
     root.title("Character Selection")
     root.geometry("1920x1080")
     app = Application(root)
