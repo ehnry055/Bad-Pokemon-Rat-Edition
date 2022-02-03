@@ -12,7 +12,7 @@ class Application(tkinter.Frame):
         
 def main():
     root = tkinter.Tk()
-    root.title("Simple Adder")
+    root.title("Character Selection")
     root.geometry("1920x1080")
     app = Application(root)
 
