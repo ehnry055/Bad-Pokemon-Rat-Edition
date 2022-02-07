@@ -1,6 +1,6 @@
 import random
 
-class monster(object):
+class Pokemon(object):
 
     MAX_DEXTERITY = 155
     
@@ -35,8 +35,8 @@ class monster(object):
         NEW: Instead of printing the result of the attack, the result is returned as a string.
         '''
         dex_advantage = ((self.dexterity - enemy.dexterity) / 2)
-        hit_prob =   monster.MAX_DEXTERITY / 2 + dex_advantage
-        hit_attempt = random.randrange(0,monster.MAX_DEXTERITY)
+        hit_prob =   Pokemon.MAX_DEXTERITY / 2 + dex_advantage
+        hit_attempt = random.randrange(0,Pokemon.MAX_DEXTERITY)
         if (hit_prob>= hit_attempt):
             damage = random.randrange (0, self.strength)
             enemy.hit_points -= damage
@@ -53,7 +53,7 @@ class monster(object):
         ''' Return (NOT print) a string that includes the name, hit points, strength, and dexterity of this object (self). '''
         return self.name + "; HP: " + str(self.hit_points) + "; Strength: " + str(self.strength) + "; Dexterity: " + str(self.dexterity)        
         
-class monsterRoster(object):
+class PokemonRoster(object):
     def __init__ (self, file_name):
         '''
         This method intializes a new CharacterRoster object, setting up a property character_list 
@@ -70,7 +70,7 @@ class monsterRoster(object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = monster(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
+            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
             self.character_list.append(character)
     
     def print_roster(self):
