@@ -2,7 +2,7 @@ from tkinter import *
 
 from PokemonBattle import PokemonBattle
 from PokemonSelect import PokemonSelect
-from pokemon import CharacterRoster
+from pokemon import monsterRoster
 
 class BattleManager(object):
     
