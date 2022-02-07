@@ -1,30 +1,19 @@
 import random
 
-'''
-NOTE: This is a full implementation of Character/CharacterRoster. 
-You may replace parts of this with your own implementation - but 
-note the NEW comments for some key changes from the original Battle lab. 
-'''
-
 class monster(object):
-    ''' 
-    The maximum dexterity of any character is 100.  
-    This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
-    This is a class variable (shared among all Character objects), so it can be accessed with Character.MAX_DEXTERITY  
-    '''
+
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image):
-        ''' 
-        This method intializes a new Character object, setting up the properties
-        name, hit_points, strength, and dexerity based upon the passed parameters. 
-        NEW: Two parameters and properties are added here: small_image and large_image, which
-        can be used by a GUI to visualize the character
-        '''
+    def __init__ (self, name, HP, Atk, Def, SpAtk, SpDef, Speed, small_image, large_image):
+
         self.name = name
-        self.hit_points = hit_points
-        self.strength = strength
-        self.dexterity = dexterity
+        self.HP = HP
+        self.Atk = Atk
+        self.Def = Def
+        self.SpAtk = SpAtk
+        self.SpDEf = SpDef
+        self.Speed = Speed
+
         self.small_image = small_image
         self.large_image = large_image
         
