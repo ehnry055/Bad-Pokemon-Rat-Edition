@@ -14,14 +14,11 @@ class BattleManager(object):
         self.computer = None
     
     def setup_character_selection (self):
-<<<<<<< HEAD
         
         self.root.title ("Choose Your Pokemon!")
         
         self.character_roster = CharacterRoster("battle_characters.txt")
 
-        self.current_screen = Screen_CharacterSelection(master = self.root, roster = self.character_roster, callback_on_selected = self.onclose_character_selection)
-=======
         '''
         This method is called to set up the Character Selection screen. 
         This also initializes the character_roster property.
@@ -35,8 +32,7 @@ class BattleManager(object):
                                                         roster = self.character_roster, 
                                                         callback_on_selected = self.onclose_character_selection
                                                         )
->>>>>>> f074e95dcdf8ca3a98b8372de571e6b6a5f8c023
-               
+           
     def onclose_character_selection (self, selected_char_index):
               
         selected_char_index = int (selected_char_index)
@@ -48,20 +44,6 @@ class BattleManager(object):
         self.computer = self.character_roster.get_random_character()
         
         # Destroys the Character Selection window
-        self.current_screen.destroy()
-
-        # Continue on - set up the Prepare To Battle screen!
-        self.setup_prepare_to_battle()
-
-    def setup_prepare_to_battle(self):
-        ''' This method is called to set up the Prepare To Battle screen. '''
-
-        # Changes the window's title
-        self.root.title ("The Combatants!")
-    
-    def onclose_prepare_to_battle (self):
-        
-        # Destroys the Prepare To Battle screen
         self.current_screen.destroy()
 
         # Continue on - set up the Battle screen!
