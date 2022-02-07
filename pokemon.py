@@ -1,5 +1,6 @@
 import random
 
+<<<<<<< HEAD
 '''
 NOTE: This is a full implementation of Character/CharacterRoster. 
 You may replace parts of this with your own implementation - but 
@@ -12,19 +13,22 @@ class Pokemon(object):
     This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
     This is a class variable (shared among all Character objects), so it can be accessed with Character.MAX_DEXTERITY  
     '''
+=======
+class monster(object):
+
+>>>>>>> d125a3bfdd7d5bd5eddb0cb8bbbf26ead1f861d9
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, hit_points, strength, dexterity, small_image, large_image):
-        ''' 
-        This method intializes a new Character object, setting up the properties
-        name, hit_points, strength, and dexerity based upon the passed parameters. 
-        NEW: Two parameters and properties are added here: small_image and large_image, which
-        can be used by a GUI to visualize the character
-        '''
+    def __init__ (self, name, HP, Atk, Def, SpAtk, SpDef, Speed, small_image, large_image):
+
         self.name = name
-        self.hit_points = hit_points
-        self.strength = strength
-        self.dexterity = dexterity
+        self.HP = HP
+        self.Atk = Atk
+        self.Def = Def
+        self.SpAtk = SpAtk
+        self.SpDEf = SpDef
+        self.Speed = Speed
+
         self.small_image = small_image
         self.large_image = large_image
         
