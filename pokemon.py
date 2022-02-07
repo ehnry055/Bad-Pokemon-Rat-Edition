@@ -14,8 +14,6 @@ class Pokemon(object):
         self.HP = HP
         self.Atk = Atk
         self.Def = Def
-        self.SpAtk = SpAtk
-        self.SpDEf = SpDef
         self.Speed = Speed
 
         self.small_image = small_image
