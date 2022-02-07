@@ -1,7 +1,11 @@
 import random
 
 class Pokemon(object):
-
+    ''' 
+    The maximum dexterity of any character is 100.  
+    This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
+    This is a class variable (shared among all Character objects), so it can be accessed with Character.MAX_DEXTERITY  
+    '''
     MAX_DEXTERITY = 155
     
     def __init__ (self, name, HP, Atk, Def, SpAtk, SpDef, Speed, small_image, large_image):
