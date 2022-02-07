@@ -1,8 +1,8 @@
-from pokemon import CharacterRoster, Character
+from pokemon import PokemonRoster, Pokemon
 
 def main():
     # Loads the character roster from the file
-    character_choices = CharacterRoster ("battle_characters.txt")
+    character_choices = PokemonRoster ("digimon.txt")
 
     # Get the user's choice
     print ("Prepare to battle!\n\nWhich character would you like?")
