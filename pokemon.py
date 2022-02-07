@@ -8,14 +8,14 @@ class Pokemon(object):
     '''
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, HP, Atk, Def, SpAtk, SpDef, Speed, small_image, large_image):
+    def __init__ (self, name, HP, Atk, Def, Speed, small_image, large_image):
 
         self.name = name
         self.HP = HP
         self.Atk = Atk
         self.Def = Def
-        self.SpAtk = SpAtk
-        self.SpDEf = SpDef
+        #self.SpAtk = SpAtk
+        #self.SpDEf = SpDef
         self.Speed = Speed
 
         self.small_image = small_image
@@ -55,7 +55,7 @@ class Pokemon(object):
                 
     def __str__ (self):
         ''' Return (NOT print) a string that includes the name, hit points, strength, and dexterity of this object (self). '''
-        return self.name + "; HP: " + str(self.hit_points) + "; Strength: " + str(self.strength) + "; Dexterity: " + str(self.dexterity)        
+        return self.name + "; HP: " + str(self.HP) + "; Atk: " + str(self.Atk) + "; Def: " + str(self.Def) + "; Speed: " + str(self.Speed)       
         
 class PokemonRoster(object):
     def __init__ (self, file_name):
