@@ -6,7 +6,7 @@ You may replace parts of this with your own implementation - but
 note the NEW comments for some key changes from the original Battle lab. 
 '''
 
-class monster(object):
+class Pokemon(object):
     ''' 
     The maximum dexterity of any character is 100.  
     This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
@@ -46,8 +46,8 @@ class monster(object):
         NEW: Instead of printing the result of the attack, the result is returned as a string.
         '''
         dex_advantage = ((self.dexterity - enemy.dexterity) / 2)
-        hit_prob =   Character.MAX_DEXTERITY / 2 + dex_advantage
-        hit_attempt = random.randrange(0,Character.MAX_DEXTERITY)
+        hit_prob =   Pokemon.MAX_DEXTERITY / 2 + dex_advantage
+        hit_attempt = random.randrange(0,Pokemon.MAX_DEXTERITY)
         if (hit_prob>= hit_attempt):
             damage = random.randrange (0, self.strength)
             enemy.hit_points -= damage
@@ -81,7 +81,7 @@ class CharacterRoster (object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Character (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
+            character = Pokemon (my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
             self.character_list.append(character)
     
     def print_roster(self):
