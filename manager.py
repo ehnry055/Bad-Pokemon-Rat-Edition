@@ -2,7 +2,7 @@ from tkinter import *
 
 from PokemonBattle import PokemonBattle
 from PokemonSelect import PokemonSelect
-from pokemon import Pokemon
+from pokemon import PokemonRoster
 
 class BattleManager(object):
     
@@ -17,10 +17,22 @@ class BattleManager(object):
         
         self.root.title ("Choose Your Pokemon!")
         
-        self.character_roster = Pokemon("digimon.txt")
+        self.character_roster = PokemonRoster("digimon.txt")
 
-        self.current_screen = PokemonSelect(master = self.root, roster = self.character_roster, callback_on_selected = self.onclose_character_selection)
-               
+        '''
+        This method is called to set up the Character Selection screen. 
+        This also initializes the character_roster property.
+        '''
+        # Changes the window's title
+        self.root.title ("Select your character!")
+        # Reads battle_characters.txt to create a CharacterRoster.
+        self.character_roster = PokemonRoster ("digimon.txt")
+        # Creates and displays a Character Selection screen
+        self.current_screen = PokemonSelect(master = self.root, 
+                                                        roster = self.character_roster, 
+                                                        callback_on_selected = self.onclose_character_selection
+                                                        )
+           
     def onclose_character_selection (self, selected_char_index):
               
         selected_char_index = int (selected_char_index)

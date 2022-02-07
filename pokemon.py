@@ -1,12 +1,6 @@
 import random
 
-'''
-NOTE: This is a full implementation of Character/CharacterRoster. 
-You may replace parts of this with your own implementation - but 
-note the NEW comments for some key changes from the original Battle lab. 
-'''
-
-class Pokemon(object):
+class PokemonRoster(object):
     ''' 
     The maximum dexterity of any character is 100.  
     This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
@@ -47,7 +41,6 @@ class Pokemon(object):
         dex_advantage = ((self.dexterity - enemy.dexterity) / 2)
         hit_prob =   Pokemon.MAX_DEXTERITY / 2 + dex_advantage
         hit_attempt = random.randrange(0,Pokemon.MAX_DEXTERITY)
-
         if (hit_prob>= hit_attempt):
             damage = random.randrange (0, self.strength)
             enemy.hit_points -= damage
@@ -64,7 +57,7 @@ class Pokemon(object):
         ''' Return (NOT print) a string that includes the name, hit points, strength, and dexterity of this object (self). '''
         return self.name + "; HP: " + str(self.hit_points) + "; Strength: " + str(self.strength) + "; Dexterity: " + str(self.dexterity)        
         
-class monsterRoster(object):
+class PokemonRoster(object):
     def __init__ (self, file_name):
         '''
         This method intializes a new CharacterRoster object, setting up a property character_list 
