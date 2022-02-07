@@ -1,6 +1,6 @@
 import random
 
-class PokemonRoster(object):
+class Pokemon(object):
     ''' 
     The maximum dexterity of any character is 100.  
     This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
