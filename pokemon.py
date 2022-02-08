@@ -8,20 +8,18 @@ class Pokemon(object):
     '''
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, HP, Atk, Def, SpAtk, SpDef, Speed, small_image, large_image):
+    def __init__ (self, name, HP, Atk, Def, Speed, small_image, large_image):
 
         self.name = name
         self.HP = HP
         self.Atk = Atk
         self.Def = Def
-        self.SpAtk = SpAtk
-        self.SpDEf = SpDef
         self.Speed = Speed
 
         self.small_image = small_image
         self.large_image = large_image
         
-    def attack (self, enemy):
+    def attack(self, enemy):
         ''' 
         In this method, self attempts to attack the enemy (another Character object) .  
 
