@@ -23,16 +23,16 @@ def main():
     
     # Battle Loop
     rnd = 1
-    while player.hit_points > 0 and computer.hit_points > 0:
+    while player.HP > 0 and computer.HP > 0:
         print ("Round: " + str (rnd))
-        print (player.name + ": " + str(player.hit_points) + " hit points remaining.")
-        print (computer.name + ": " + str(computer.hit_points) + " hit points remaining.")
+        print (player.name + ": " + str(player.HP) + " hit points remaining.")
+        print (computer.name + ": " + str(computer.HP) + " hit points remaining.")
         input ("\nPress enter to attack!")
 
         # Player attacks first, then Computer attacks back (if alive)
         print(player.attack (computer))
 
-        if computer.hit_points > 0:
+        if computer.HP > 0:
             print(computer.attack (player))
 
         print()
@@ -40,9 +40,9 @@ def main():
         rnd += 1
 
     # Print post-battle death message:
-    if computer.hit_points <= 0:
+    if computer.HP <= 0:
         print(computer.get_death_message())
-    elif player.hit_points <= 0:
+    elif player.HP <= 0:
         print(player.get_death_message())
 
 main()

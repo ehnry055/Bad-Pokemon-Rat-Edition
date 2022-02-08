@@ -8,35 +8,22 @@ class Pokemon(object):
     '''
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, HP, Atk, Def, Speed, small_image, large_image):
+    def __init__ (self, name, HP, Atk, Def, Speed, Move, small_image, large_image):
 
         self.name = name
         self.HP = HP
         self.Atk = Atk
         self.Def = Def
         self.Speed = Speed
+        self.Move = Move 
 
         self.small_image = small_image
         self.large_image = large_image
         
     def attack(self, enemy):
-        ''' 
-        In this method, self attempts to attack the enemy (another Character object) .  
-
-        First, the method uses self's and enemy's dexterity property to randomly determine if the attack lands.
-        Exactly how this is implemented is up to you, but it should generally adhere to these rules:
-        1) If the dexterity of self is higher than that of enemy, the probability increases.
-        2) If the dexterity of self is lower than that of enemy, the probability decreases.
-
-        If the attack lands, determine the amount of damage to be dealt to enemy. 
-        It should be a random number between 0 and self's strength property.
-        The enemy's hit points should then be reduced by that amount.
-        
-        Finally, the method should RETURN the result of the attack to the user.
-
-        NEW: Instead of printing the result of the attack, the result is returned as a string.
-        '''
-
+        damage = ((22 * self.Move[1] * (self.Atk / self.Def)) / 50) + 2
+        enemy.HP -= damage 
+        return self.name + "uses" + self.Move[0] + "!"
         
     def get_death_message(self):
         ''' Returns (NOT print) a death message. It should include self's name '''
