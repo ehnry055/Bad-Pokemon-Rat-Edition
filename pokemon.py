@@ -59,8 +59,8 @@ class PokemonRoster(object):
         Use str() on each Character object to utilize the __str__ method.
         NOTE: This method isn't used by GUIs.
         '''
-        for i in range (len(self.character_list)):
-            print (str(i) +": " + str(self.character_list[i]))        
+        for i in range(len(self.character_list)):
+            print(str(i) +": " + str(self.character_list[i]))        
     
     def get_and_remove_character (self, i):
         ''' 

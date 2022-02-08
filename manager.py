@@ -53,7 +53,8 @@ class BattleManager(object):
         self.root.title ("Battle!")
 
         # Creates and displays a Battle screen
-        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, callback_on_exit = self.onclose_battle)
+        Move = 
+        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, #Move = self. callback_on_exit = self.onclose_battle)
 
     def onclose_battle (self):
         ''' 
