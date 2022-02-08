@@ -31,7 +31,7 @@ class Pokemon(object):
                 
     def __str__ (self):
         ''' Return (NOT print) a string that includes the name, hit points, strength, and dexterity of this object (self). '''
-        return self.name + "; HP: " + str(self.hit_points) + "; Strength: " + str(self.strength) + "; Dexterity: " + str(self.dexterity)        
+        return self.name + "; HP: " + str(self.HP) + "; ATK: " + str(self.Atk) + "; DEF: " + str(self.Def) + "; SPD: " + str(self.Speed)       
         
 class PokemonRoster(object):
     def __init__ (self, file_name):
@@ -50,7 +50,7 @@ class PokemonRoster(object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), my_fields[4], my_fields[5])
+            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]), my_fields[5], my_fields[6])
             self.character_list.append(character)
     
     def print_roster(self):

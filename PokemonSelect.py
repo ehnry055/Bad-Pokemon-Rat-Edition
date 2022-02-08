@@ -43,11 +43,11 @@ class PokemonSelect(Frame):
         self.character_index = StringVar()
         self.character_index.set(None)
 
-        Label(self, text = "Hit Points\tDexterity\tStrength").grid(row = 0, column = 2, sticky = E)
+        Label(self, text = "HP\tATK\tDEF").grid(row = 0, column = 2, sticky = E)
 
         for i in range(self.roster.get_number_of_characters()):
             Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i, column = 0, sticky = W)
-            imageSmall = PhotoImage(file="images/" + self.roster.character_list[i].small_image)
+            imageSmall = PhotoImage(file="imagination/" + self.roster.character_list[i].small_image)
             w = Label(self, image = imageSmall, )
             w.photo = imageSmall
             w.grid(row = 2 + i, column = 1, sticky = W)
