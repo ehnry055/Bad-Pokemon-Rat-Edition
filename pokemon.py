@@ -8,13 +8,14 @@ class Pokemon(object):
     '''
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, HP, Atk, Def, Speed, small_image, large_image):
+    def __init__ (self, name, HP, Atk, Def, Speed, Move, small_image, large_image):
 
         self.name = name
         self.HP = HP
         self.Atk = Atk
         self.Def = Def
         self.Speed = Speed
+        self.Move = Move
 
         self.small_image = small_image
         self.large_image = large_image
