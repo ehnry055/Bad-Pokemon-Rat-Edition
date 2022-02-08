@@ -36,16 +36,7 @@ class Pokemon(object):
 
         NEW: Instead of printing the result of the attack, the result is returned as a string.
         '''
-        dex_advantage = ((self.dexterity - enemy.dexterity) / 2)
-        hit_prob =   Pokemon.MAX_DEXTERITY / 2 + dex_advantage
-        hit_attempt = random.randrange(0,Pokemon.MAX_DEXTERITY)
-        if (hit_prob>= hit_attempt):
-            damage = random.randrange (0, self.strength)
-            enemy.hit_points -= damage
-            result = (self.name + " hits " + enemy.name +" causing " + str(damage) + " damage.")
-        else:
-            result = (self.name + " misses " + enemy.name + ".")
-        return result
+
         
     def get_death_message(self):
         ''' Returns (NOT print) a death message. It should include self's name '''
