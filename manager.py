@@ -28,10 +28,7 @@ class BattleManager(object):
         # Reads battle_characters.txt to create a CharacterRoster.
         self.character_roster = PokemonRoster ("digimon.txt")
         # Creates and displays a Character Selection screen
-        self.current_screen = PokemonSelect(master = self.root, 
-                                                        roster = self.character_roster, 
-                                                        callback_on_selected = self.onclose_character_selection
-                                                        )
+        self.current_screen = PokemonSelect(master = self.root, roster = self.character_roster, callback_on_selected = self.onclose_character_selection)
            
     def onclose_character_selection (self, selected_char_index):
               
@@ -56,11 +53,7 @@ class BattleManager(object):
         self.root.title ("Battle!")
 
         # Creates and displays a Battle screen
-        self.current_screen = PokemonBattle(master= self.root, 
-                                            player1 = self.player, 
-                                            player2 = self.computer, 
-                                            callback_on_exit = self.onclose_battle
-                                            )
+        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, callback_on_exit = self.onclose_battle)
 
     def onclose_battle (self):
         ''' 
