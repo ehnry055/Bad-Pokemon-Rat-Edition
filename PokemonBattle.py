@@ -9,8 +9,8 @@ class PokemonBattle(Frame):
         self.player2 = player2
 
         # Store the maximum number of hit points which are needed on the screen display.
-        self.player1_max_hp = player1.hit_points
-        self.player2_max_hp = player2.hit_points
+        self.player1_max_hp = player1.HP
+        self.player2_max_hp = player2.HP
 
         # Save the method reference to which we return control after this page Exits.
         self.callback_on_exit = callback_on_exit
@@ -40,13 +40,13 @@ class PokemonBattle(Frame):
             image.photo = character
             image.grid(row = 4, column = i, sticky = W)
 
-        self.totalhp1 = self.player1.hit_points
-        self.totalhp2 = self.player2.hit_points
+        self.totalhp1 = self.player1.HP
+        self.totalhp2 = self.player2.HP
 
-        self.hp1 = Label(self, text = f"{self.player1.hit_points}/{self.totalhp1} HP")
+        self.hp1 = Label(self, text = f"{self.player1.HP}/{self.totalhp1} HP")
         self.hp1.grid(row = 5, column = 1, sticky = N)
 
-        self.hp2 = Label(self, text = f"{self.player2.hit_points}/{self.totalhp2} HP")
+        self.hp2 = Label(self, text = f"{self.player2.HP}/{self.totalhp2} HP")
         self.hp2.grid(row = 5, column = 2, sticky = N)
 
         self.desc1 = Label(self, text= "")
@@ -76,13 +76,13 @@ class PokemonBattle(Frame):
         self.desc1["text"] = f"{self.player1.attack(self.player2)}"
         self.desc2["text"] = f"{self.player2.attack(self.player1)}"
 
-        self.hp1["text"] = f"{self.player1.hit_points}/{self.totalhp1} HP"
-        self.hp2["text"] = f"{self.player2.hit_points}/{self.totalhp2} HP"
+        self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
+        self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
 
-        if self.player1.hit_points <= 0 or self.player2.hit_points <= 0:
-            if self.player1.hit_points <= 0:
+        if self.player1.HP <= 0 or self.player2.hit_points <= 0:
+            if self.player1.HP <= 0:
                 self.winner["text"] = f"{self.player2.name} is victorious!"
-            if self.player2.hit_points <= 0:
+            if self.player2.HP <= 0:
                 self.winner["text"] = f"{self.player1.name} is victorious!"
         
             self.button.destroy()
