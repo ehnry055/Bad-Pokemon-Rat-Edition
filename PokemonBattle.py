@@ -1,12 +1,13 @@
 from tkinter import *
 
 class PokemonBattle(Frame):
-    def __init__ (self, master, player1, player2, callback_on_exit):
+    def __init__ (self, master, player1, player2, Move, callback_on_exit):
         super().__init__(master)
 
         # Save references to the two player objects
         self.player1 = player1
         self.player2 = player2
+        self.Move = Move
 
         # Store the maximum number of hit points which are needed on the screen display.
         self.player1_max_hp = player1.HP
@@ -23,8 +24,17 @@ class PokemonBattle(Frame):
         This method creates all of the (initial) widgets for the battle page.
         '''
         
-        self.button = Button(self, text = "Attack", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = "Scratch", fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 0, column = 1, sticky = N)
+
+        self.button = Button(self, text = "Tackle", fg = "Red", command = self.attack_clicked)
+        self.button.grid(row = 0, column = 2, sticky = N)
+
+        self.button = Button(self, text = "Flamethrower", fg = "Red", command = self.attack_clicked)
+        self.button.grid(row = 1, column = 1, sticky = N)
+
+        self.button = Button(self, text = "Psychic", fg = "Red", command = self.attack_clicked)
+        self.button.grid(row = 1, column = 2, sticky = N)
 
         Label(self, text = "You").grid(row = 3, column = 1, sticky = N)
         Label(self, text = "Computer").grid(row = 3, column = 2, sticky = N)
@@ -60,21 +70,9 @@ class PokemonBattle(Frame):
             
         
     def attack_clicked(self):
-        ''' This method is called when the user presses the "Attack" button.
-            
-            This method does the following:
-            1) Calls the character.attack method for both the player and (if still alive) the computer.
-            2) Updates the labels on the top right with the results of the attacks.
-            3) Determines if there was a victor, and if so display that info 
-            4) If there is a victor, remove the Attack button.  Create an Exit button to replace it.  
-
-            To remove a widget, use the destroy() method. For example:
-    
-                self.button.destroy()   
-        '''
-        
-        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
+         
+        self.desc1["text"] = f"{self.player1.attack(self.player2, self.Move)}"
+        self.desc2["text"] = f"{self.player2.attack(self.player1, self.Move)}"
 
         self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
         self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
