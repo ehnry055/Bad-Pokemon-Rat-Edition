@@ -30,10 +30,10 @@ class PokemonBattle(Frame):
         self.button = Button(self, text = "Tackle", fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 0, column = 2, sticky = N)
 
-        self.button = Button(self, text = "Flamethrower", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = "Pound", fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 1, column = 1, sticky = N)
 
-        self.button = Button(self, text = "Psychic", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = "Flamethrower", fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 1, column = 2, sticky = N)
 
         Label(self, text = "You").grid(row = 3, column = 1, sticky = N)
@@ -45,7 +45,7 @@ class PokemonBattle(Frame):
             else:
                 p = self.player2
 
-            character = PhotoImage(file="images/" + str(p.large_image))
+            character = PhotoImage(file="images/" + str(p.standard_image))
             image = Label(self, image = character, )
             image.photo = character
             image.grid(row = 4, column = i, sticky = W)
