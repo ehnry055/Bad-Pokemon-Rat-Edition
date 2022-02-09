@@ -15,7 +15,7 @@ class Pokemon(object):
         self.Atk = Atk
         self.Def = Def
         self.Speed = Speed
-        self.Move = Move 
+        #self.Move = Move 
 
         self.small_image = small_image
         self.large_image = large_image
