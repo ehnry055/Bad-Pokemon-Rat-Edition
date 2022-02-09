@@ -47,12 +47,12 @@ class PokemonSelect(Frame):
 
         for i in range(self.roster.get_number_of_characters()):
             Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i, column = 0, sticky = W)
-            imageSmall = PhotoImage(file="imagination/" + self.roster.character_list[i].small_image)
+            imageSmall = PhotoImage(file="imagination/" + self.roster.character_list[i].standard_image)
             w = Label(self, image = imageSmall, )
             w.photo = imageSmall
             w.grid(row = 2 + i, column = 1, sticky = W)
 
-            Label(self, text = f"{self.roster.character_list[i].hit_points}\t{self.roster.character_list[i].dexterity}\t{self.roster.character_list[i].strength}").grid(row = 2+i, column = 2, sticky = E)
+            Label(self, text = f"{self.roster.character_list[i].HP}\t{self.roster.character_list[i].Atk}\t{self.roster.character_list[i].Def}\t{self.roster.character_list[i].Speed}").grid(row = 2+i, column = 2, sticky = E)
 
         Button(self, text = "Character Selected!", fg = "Red", command = self.selected_clicked).grid(row = 8, column = 3, sticky = E)
 

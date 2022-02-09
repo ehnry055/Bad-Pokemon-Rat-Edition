@@ -8,7 +8,7 @@ class Pokemon(object):
     '''
     MAX_DEXTERITY = 155
     
-    def __init__ (self, name, HP, Atk, Def, Speed, small_image, large_image):
+    def __init__ (self, name, HP, Atk, Def, Speed, standard_image):
 
         self.name = name
         self.HP = HP
@@ -17,8 +17,7 @@ class Pokemon(object):
         self.Speed = Speed
         #self.Move = Move 
 
-        self.small_image = small_image
-        self.large_image = large_image
+        self.standard_image = standard_image
         
     def attack(self, enemy):
         damage = ((22 * self.Move[1] * (self.Atk / self.Def)) / 50) + 2
@@ -50,7 +49,7 @@ class PokemonRoster(object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]))
+            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]), (my_fields[5]))
             self.character_list.append(character)
     
     def print_roster(self):

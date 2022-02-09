@@ -45,7 +45,7 @@ class PokemonBattle(Frame):
             else:
                 p = self.player2
 
-            character = PhotoImage(file="images/" + str(p.large_image))
+            character = PhotoImage(file="images/" + str(p.standard_image))
             image = Label(self, image = character, )
             image.photo = character
             image.grid(row = 4, column = i, sticky = W)
