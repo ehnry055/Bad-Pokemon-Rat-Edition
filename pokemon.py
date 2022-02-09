@@ -27,7 +27,7 @@ class Pokemon(object):
         
     def get_death_message(self):
         ''' Returns (NOT print) a death message. It should include self's name '''
-        return self.name + ": Ahhhhh.. too much damage!  I have died."
+        return self.name + "fainted!"
                 
     def __str__ (self):
         ''' Return (NOT print) a string that includes the name, hit points, strength, and dexterity of this object (self). '''
@@ -50,7 +50,7 @@ class PokemonRoster(object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]), my_fields[5], my_fields[6])
+            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]))
             self.character_list.append(character)
     
     def print_roster(self):
