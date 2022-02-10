@@ -3,6 +3,7 @@ from tkinter import *
 from PokemonBattle import PokemonBattle
 from PokemonSelect import PokemonSelect
 from pokemon import PokemonRoster
+from moves import MovesRoster
 
 class BattleManager(object):
     
@@ -18,7 +19,7 @@ class BattleManager(object):
         self.root.title ("Choose Your Pokemon!")
         
         self.character_roster = PokemonRoster("digimon.txt")
-
+        self.movelist = MovesRoster("pokemonmoves.txt")
         '''
         This method is called to set up the Character Selection screen. 
         This also initializes the character_roster property.
@@ -53,8 +54,7 @@ class BattleManager(object):
         self.root.title ("Battle!")
 
         # Creates and displays a Battle screen
-        #Move = 
-        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, callback_on_exit = self.onclose_battle) #Move = self
+        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, callback_on_exit = self.onclose_battle)
 
     def onclose_battle (self):
         ''' 
