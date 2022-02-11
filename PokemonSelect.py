@@ -54,7 +54,7 @@ class PokemonSelect(Frame):
 
             Label(self, text = f"{self.roster.character_list[i].HP}\t{self.roster.character_list[i].Atk}\t{self.roster.character_list[i].Def}\t{self.roster.character_list[i].Speed}").grid(row = 2+i, column = 2, sticky = W)
 
-        for i in range(4, 8):
+        for i in range(4, 8): #hardcoded so adjust when longer character list. 
             Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i - 4, column = 4, sticky = E)
             imageSmall = PhotoImage(file="imagination/" + self.roster.character_list[i].standard_image)
             w = Label(self, image = imageSmall, )
