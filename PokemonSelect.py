@@ -54,13 +54,13 @@ class PokemonSelect(Frame):
             Label(self, text = f"{self.roster.character_list[i].HP}\t{self.roster.character_list[i].Atk}\t{self.roster.character_list[i].Def}\t{self.roster.character_list[i].Speed}").grid(row = 2+i, column = 2, sticky = W)
 
         for i in range(4, 8):
-            Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i, column = 2, sticky = E)
+            Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i - 4, column = 4, sticky = E)
             imageSmall = PhotoImage(file="imagination/" + self.roster.character_list[i].standard_image)
             w = Label(self, image = imageSmall, )
             w.photo = imageSmall
-            w.grid(row = 2 + i, column = 4, sticky = E)
+            w.grid(row = 2 + i - 4, column = 5, sticky = E)
 
-            Label(self, text = f"{self.roster.character_list[i].HP}\t{self.roster.character_list[i].Atk}\t{self.roster.character_list[i].Def}\t{self.roster.character_list[i].Speed}").grid(row = 2+i, column = 5, sticky = E)
+            Label(self, text = f"{self.roster.character_list[i].HP}\t{self.roster.character_list[i].Atk}\t{self.roster.character_list[i].Def}\t{self.roster.character_list[i].Speed}").grid(row = 2+i-4, column = 6, sticky = E)
 
         Button(self, text = "Pokemon Selected!", fg = "Red", command = self.selected_clicked).grid(row = 8, column = 4, sticky = E)
 
