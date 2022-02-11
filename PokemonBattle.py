@@ -7,7 +7,7 @@ class PokemonBattle(Frame):
         # Save references to the two player objects
         self.player1 = player1
         self.player2 = player2
-        self.Move = Move
+        self.Move = Move.moves_list
 
         # Store the maximum number of hit points which are needed on the screen display.
         self.player1_max_hp = player1.HP
@@ -24,16 +24,16 @@ class PokemonBattle(Frame):
         This method creates all of the (initial) widgets for the battle page.
         '''
         
-        self.button = Button(self, text = "Scratch", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = self.Move[0], fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 0, column = 1, sticky = N)
 
-        self.button = Button(self, text = "Tackle", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = self.Move[1], fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 0, column = 2, sticky = N)
 
-        self.button = Button(self, text = "Pound", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = self.Move[2], fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 1, column = 1, sticky = N)
 
-        self.button = Button(self, text = "Flamethrower", fg = "Red", command = self.attack_clicked)
+        self.button = Button(self, text = self.Move[3], fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 1, column = 2, sticky = N)
 
         Label(self, text = "You").grid(row = 3, column = 1, sticky = N)
@@ -45,7 +45,7 @@ class PokemonBattle(Frame):
             else:
                 p = self.player2
 
-            character = PhotoImage(file="images/" + str(p.standard_image))
+            character = PhotoImage(file="imagination/" + str(p.standard_image))
             image = Label(self, image = character, )
             image.photo = character
             image.grid(row = 4, column = i, sticky = W)
@@ -70,9 +70,9 @@ class PokemonBattle(Frame):
             
         
     def attack_clicked(self):
-         
-        self.desc1["text"] = f"{self.player1.attack(self.player2, self.Move)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1, self.Move)}"
+
+        self.desc1["text"] = f"{self.player1.attack(self.player2, self.Move[0])}"
+        self.desc2["text"] = f"{self.player2.attack(self.player1, self.Move[0])}"
 
         self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
         self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
