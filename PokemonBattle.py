@@ -1,13 +1,13 @@
 from tkinter import *
 
 class PokemonBattle(Frame):
-    def __init__ (self, master, player1, player2, Move, callback_on_exit):
+    def __init__ (self, master, player1, player2, callback_on_exit):
         super().__init__(master)
 
         # Save references to the two player objects
         self.player1 = player1
         self.player2 = player2
-        self.Move = Move
+        #self.Move = Move
 
         # Store the maximum number of hit points which are needed on the screen display.
         self.player1_max_hp = player1.HP
@@ -36,8 +36,8 @@ class PokemonBattle(Frame):
         self.button = Button(self, text = "Flamethrower", fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 1, column = 2, sticky = N)
 
-        Label(self, text = "You").grid(row = 3, column = 1, sticky = N)
-        Label(self, text = "Computer").grid(row = 3, column = 2, sticky = N)
+        Label(self, text = "You").grid(row = 4, column = 2, sticky = N)
+        Label(self, text = "Computer").grid(row = 4, column = 1, sticky = N)
 
         for i in range(1, 3):
             if i == 1:
@@ -45,10 +45,10 @@ class PokemonBattle(Frame):
             else:
                 p = self.player2
 
-            character = PhotoImage(file="images/" + str(p.standard_image))
+            character = PhotoImage(file="imagination/" + str(p.standard_image))
             image = Label(self, image = character, )
             image.photo = character
-            image.grid(row = 4, column = i, sticky = W)
+            image.grid(row = 5, column = i, sticky = W)
 
         self.totalhp1 = self.player1.HP
         self.totalhp2 = self.player2.HP
@@ -71,8 +71,8 @@ class PokemonBattle(Frame):
         
     def attack_clicked(self):
          
-        self.desc1["text"] = f"{self.player1.attack(self.player2, self.Move)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1, self.Move)}"
+        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
+        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
 
         self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
         self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
