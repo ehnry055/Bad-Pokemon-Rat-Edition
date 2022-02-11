@@ -43,6 +43,7 @@ class PokemonSelect(Frame):
         self.character_index.set(None)
 
         Label(self, text = "HP\tATK\tDEF\tSPD").grid(row = 0, column = 2, sticky = E)
+        Label(self,text = "HP\tATK\tDEF\tSPD").grid(row = 0, column = 6, sticky= E)
 
         for i in range(self.roster.get_number_of_characters()-4):
             Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i, column = 0, sticky = W)
@@ -62,7 +63,7 @@ class PokemonSelect(Frame):
 
             Label(self, text = f"{self.roster.character_list[i].HP}\t{self.roster.character_list[i].Atk}\t{self.roster.character_list[i].Def}\t{self.roster.character_list[i].Speed}").grid(row = 2+i-4, column = 6, sticky = E)
 
-        Button(self, text = "Pokemon Selected!", fg = "Red", command = self.selected_clicked).grid(row = 8, column = 4, sticky = E)
+        Button(self, text = "Pokemon Selected!", fg = "Red", command = self.selected_clicked).grid(row = 10, column = 8, sticky = E)
 
     def selected_clicked(self):
         ''' This method is to be called when the "Character Selected!" button is clicked. 
