@@ -43,6 +43,7 @@ class PokemonSelect(Frame):
         self.character_index.set(None)
 
         Label(self, text = "HP\tATK\tDEF\tSPD").grid(row = 0, column = 2, sticky = E)
+        Label(self,text = "HP\tATK\tDEF\tSPD").grid(row = 0, column = 6, sticky= E)
 
         for i in range(self.roster.get_number_of_characters()-4):
             Radiobutton(self, text = self.roster.character_list[i].name, variable = self.character_index, value = i).grid(row = 2 + i, column = 0, sticky = W)
