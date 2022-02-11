@@ -27,7 +27,7 @@ class BattleManager(object):
         # Changes the window's title
         self.root.title ("Select your character!")
         # Reads battle_characters.txt to create a CharacterRoster.
-        self.character_roster = PokemonRoster ("digimon.txt")
+        self.character_roster = PokemonRoster("digimon.txt")
         # Creates and displays a Character Selection screen
         self.current_screen = PokemonSelect(master = self.root, roster = self.character_roster, callback_on_selected = self.onclose_character_selection)
            

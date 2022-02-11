@@ -36,8 +36,8 @@ class PokemonBattle(Frame):
         self.button = Button(self, text = self.Move[3], fg = "Red", command = self.attack_clicked)
         self.button.grid(row = 1, column = 2, sticky = N)
 
-        Label(self, text = "You").grid(row = 3, column = 1, sticky = N)
-        Label(self, text = "Computer").grid(row = 3, column = 2, sticky = N)
+        Label(self, text = self.player1.name).grid(row = 3, column = 1, sticky = N)
+        Label(self, text = self.player2.name).grid(row = 3, column = 2, sticky = N)
 
         for i in range(1, 3):
             if i == 1:
@@ -70,9 +70,8 @@ class PokemonBattle(Frame):
             
         
     def attack_clicked(self):
-
-        self.desc1["text"] = f"{self.player1.attack(self.player2, self.Move[0])}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1, self.Move[0])}"
+        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
+        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
 
         self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
         self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
