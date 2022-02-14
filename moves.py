@@ -7,13 +7,14 @@ class MovesRoster(object):
         The file is in comma separated format.  Each line of the file includes:
             <Name>,<Hit Points>,<Strength>,<Dexterity>
         '''
-        self.moves_list = []
+        self.moves_dict = {}
 
         
         text_file = open(file_name)
 
         for line in text_file:
-            line = line.strip()
-            my_fields = line.split(",")
-            move = my_fields[0], int(my_fields[1])
-            self.moves_list.append(move)
+                move_damage = line.split(",")
+                move = move_damage[0]
+                damage = move_damage[1]
+                damage = damage.strip()
+                self.moves_dict[move] = damage 
