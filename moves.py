@@ -13,7 +13,8 @@ class MovesRoster(object):
         text_file = open(file_name)
 
         for line in text_file:
-            line = line.strip()
-            my_fields = line.split(",")
-            move = my_fields[0], int(my_fields[1])
-            self.moves_list.append(move)
+            line = line.strip().split(",")
+            
+    
+
+        print(self.moves_list[0])
