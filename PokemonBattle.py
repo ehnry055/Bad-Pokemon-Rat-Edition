@@ -1,7 +1,7 @@
 from tkinter import *
 
 class PokemonBattle(Frame):
-    def __init__ (self, master, player1, player2, callback_on_exit):
+    def __init__ (self, master, player1, player2, Move, callback_on_exit):
         super().__init__(master)
 
         # Save references to the two player objects
