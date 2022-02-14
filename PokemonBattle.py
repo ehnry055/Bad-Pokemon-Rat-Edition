@@ -1,4 +1,5 @@
 from tkinter import *
+from pokemon import Pokemon
 
 class PokemonBattle(Frame):
     def __init__ (self, master, player1, player2, Move, callback_on_exit):
