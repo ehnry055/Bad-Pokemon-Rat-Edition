@@ -1,4 +1,6 @@
 import random
+
+from setuptools import setup
 from moves import MovesRoster
 class Pokemon(object):
     ''' 
@@ -15,7 +17,8 @@ class Pokemon(object):
         self.Atk = Atk
         self.Def = Def
         self.Speed = Speed
-        self.Move = MovesRoster("pokemonmoves.txt")
+        setup = MovesRoster("pokemonmoves.txt")
+        self.Move = setup.moves_list
 
         self.standard_image = standard_image
         
