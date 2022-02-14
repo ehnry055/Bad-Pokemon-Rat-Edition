@@ -48,7 +48,7 @@ class PokemonBattle(Frame):
             character = PhotoImage(file="imagination/" + str(p.standard_image))
             image = Label(self, image = character, )
             image.photo = character
-            image.grid(row = 4, column = i, sticky = W)
+            image.grid(row = 5, column = i, sticky = W)
 
         self.totalhp1 = self.player1.HP
         self.totalhp2 = self.player2.HP
