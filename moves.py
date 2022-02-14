@@ -18,3 +18,6 @@ class MovesRoster(object):
                 damage = move_damage[1]
                 damage = damage.strip()
                 self.moves_dict[move] = damage 
+            
+    
+

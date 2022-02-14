@@ -25,16 +25,16 @@ class PokemonBattle(Frame):
         This method creates all of the (initial) widgets for the battle page.
         '''
         
-        self.button = Button(self, text = self.Move[0], fg = "Red", command = self.attack_clicked1)
+        self.button = Button(self, text = self.Move[0], fg = "Red", command = self.attack_clicked(self.Move[0]))
         self.button.grid(row = 0, column = 1, sticky = N)
 
-        self.button = Button(self, text = self.Move[1], fg = "Red", command = self.attack_clicked2)
+        self.button = Button(self, text = self.Move[1], fg = "Red", command = self.attack_clicked(self.Move[1]))
         self.button.grid(row = 0, column = 2, sticky = N)
 
-        self.button = Button(self, text = self.Move[2], fg = "Red", command = self.attack_clicked3)
+        self.button = Button(self, text = self.Move[2], fg = "Red", command = self.attack_clicked(self.Move[2]))
         self.button.grid(row = 1, column = 1, sticky = N)
 
-        self.button = Button(self, text = self.Move[3], fg = "Red", command = self.attack_clicked4)
+        self.button = Button(self, text = self.Move[3], fg = "Red", command = self.attack_clicked(self.Move[3]))
         self.button.grid(row = 1, column = 2, sticky = N)
 
         Label(self, text = self.player1.name).grid(row = 3, column = 1, sticky = N)
@@ -70,55 +70,7 @@ class PokemonBattle(Frame):
         self.winner.grid(row= 2, column = 2, sticky = N)
             
         
-    def attack_clicked1(self):
-        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
-
-        self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
-        self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
-
-        if self.player1.HP <= 0 or self.player2.hit_points <= 0:
-            if self.player1.HP <= 0:
-                self.winner["text"] = f"{self.player2.name} is victorious!"
-            if self.player2.HP <= 0:
-                self.winner["text"] = f"{self.player1.name} is victorious!"
-        
-            self.button.destroy()
-            Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 0, column = 1, sticky = N)
-
-    def attack_clicked2(self):
-        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
-
-        self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
-        self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
-
-        if self.player1.HP <= 0 or self.player2.hit_points <= 0:
-            if self.player1.HP <= 0:
-                self.winner["text"] = f"{self.player2.name} is victorious!"
-            if self.player2.HP <= 0:
-                self.winner["text"] = f"{self.player1.name} is victorious!"
-        
-            self.button.destroy()
-            Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 0, column = 1, sticky = N)
-
-    def attack_clicked3(self):
-        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
-
-        self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
-        self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
-
-        if self.player1.HP <= 0 or self.player2.hit_points <= 0:
-            if self.player1.HP <= 0:
-                self.winner["text"] = f"{self.player2.name} is victorious!"
-            if self.player2.HP <= 0:
-                self.winner["text"] = f"{self.player1.name} is victorious!"
-        
-            self.button.destroy()
-            Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 0, column = 1, sticky = N)
-
-    def attack_clicked4(self):
+    def attack_clicked(self, moves):
         self.desc1["text"] = f"{self.player1.attack(self.player2)}"
         self.desc2["text"] = f"{self.player2.attack(self.player1)}"
 
