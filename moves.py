@@ -7,7 +7,7 @@ class MovesRoster(object):
         The file is in comma separated format.  Each line of the file includes:
             <Name>,<Hit Points>,<Strength>,<Dexterity>
         '''
-        self.moves_list = []
+        self.moves_list = {}
 
         
         text_file = open(file_name)
