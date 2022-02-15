@@ -25,16 +25,16 @@ class PokemonBattle(Frame):
         This method creates all of the (initial) widgets for the battle page.
         '''
         
-        self.button = Button(self, text = self.Move[0], fg = "Red", command = self.attack_clicked(self.Move[0]))
+        self.button = Button(self, text = self.player1.Move1, fg = "Red", command = self.attack_clicked())
         self.button.grid(row = 0, column = 1, sticky = N)
 
-        self.button = Button(self, text = self.Move[1], fg = "Red", command = self.attack_clicked(self.Move[1]))
+        self.button = Button(self, text = self.player1.Move2, fg = "Red", command = self.attack_clicked(self.Move[1]))
         self.button.grid(row = 0, column = 2, sticky = N)
 
-        self.button = Button(self, text = self.Move[2], fg = "Red", command = self.attack_clicked(self.Move[2]))
+        self.button = Button(self, text = self.player1.Move3, fg = "Red", command = self.attack_clicked(self.Move[2]))
         self.button.grid(row = 1, column = 1, sticky = N)
 
-        self.button = Button(self, text = self.Move[3], fg = "Red", command = self.attack_clicked(self.Move[3]))
+        self.button = Button(self, text = self.player1.Move4, fg = "Red", command = self.attack_clicked(self.Move[3]))
         self.button.grid(row = 1, column = 2, sticky = N)
 
         Label(self, text = self.player1.name).grid(row = 3, column = 1, sticky = N)
