@@ -17,7 +17,4 @@ class MovesRoster(object):
                 move = move_damage[0]
                 damage = move_damage[1]
                 damage = damage.strip()
-                self.moves_dict[move] = damage 
-            
-    
-
+                self.moves_dict[move] = damage

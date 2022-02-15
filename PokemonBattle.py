@@ -8,7 +8,7 @@ class PokemonBattle(Frame):
         # Save references to the two player objects
         self.player1 = player1
         self.player2 = player2
-        self.Move = Move.moves_list
+        self.Move = Move.moves_dict
 
         # Store the maximum number of hit points which are needed on the screen display.
         self.player1_max_hp = player1.HP
