@@ -19,7 +19,7 @@ class BattleManager(object):
         self.root.title ("Choose Your Pokemon!")
         
         self.character_roster = PokemonRoster("digimon.txt")
-        self.movelist = MovesRoster("pokemonmoves.txt")
+        self.movesdict = MovesRoster("pokemonmoves.txt")
         '''
         This method is called to set up the Character Selection screen. 
         This also initializes the character_roster property.
@@ -54,7 +54,7 @@ class BattleManager(object):
         self.root.title ("Battle!")
 
         # Creates and displays a Battle screen
-        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, Move = self.movelist, callback_on_exit = self.onclose_battle)
+        self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, Move = self.movesdict, callback_on_exit = self.onclose_battle)
 
     def onclose_battle (self):
         ''' 

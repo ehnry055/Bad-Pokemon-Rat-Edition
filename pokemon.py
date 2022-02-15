@@ -18,7 +18,7 @@ class Pokemon(object):
         self.Def = Def
         self.Speed = Speed
         setup = MovesRoster("pokemonmoves.txt")
-        self.Move = setup.moves_list
+        self.Move = setup.moves_dict
 
         self.standard_image = standard_image
         
