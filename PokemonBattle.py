@@ -25,16 +25,16 @@ class PokemonBattle(Frame):
         This method creates all of the (initial) widgets for the battle page.
         '''
         
-        self.button = Button(self, text = self.player1.Move1, fg = "Red", command = self.attack_clicked())
+        self.button = Button(self, text = self.player1.Move1, fg = "Red", command = self.attack_clicked(self.Move[self.player1.Move1], self.player1.Move1))
         self.button.grid(row = 0, column = 1, sticky = N)
 
-        self.button = Button(self, text = self.player1.Move2, fg = "Red", command = self.attack_clicked(self.Move[1]))
+        self.button = Button(self, text = self.player1.Move2, fg = "Red", command = self.attack_clicked(self.Move[self.player1.Move2], self.player1.Move2))
         self.button.grid(row = 0, column = 2, sticky = N)
 
-        self.button = Button(self, text = self.player1.Move3, fg = "Red", command = self.attack_clicked(self.Move[2]))
+        self.button = Button(self, text = self.player1.Move3, fg = "Red", command = self.attack_clicked(self.Move[self.player1.Move3], self.player1.Move3))
         self.button.grid(row = 1, column = 1, sticky = N)
 
-        self.button = Button(self, text = self.player1.Move4, fg = "Red", command = self.attack_clicked(self.Move[3]))
+        self.button = Button(self, text = self.player1.Move4, fg = "Red", command = self.attack_clicked(self.Move[self.player1.Move4], self.player1.Move4))
         self.button.grid(row = 1, column = 2, sticky = N)
 
         Label(self, text = self.player1.name).grid(row = 3, column = 1, sticky = N)
@@ -70,9 +70,9 @@ class PokemonBattle(Frame):
         self.winner.grid(row= 2, column = 2, sticky = N)
             
         
-    def attack_clicked(self, moves):
-        self.desc1["text"] = f"{self.player1.attack(self.player2)}"
-        self.desc2["text"] = f"{self.player2.attack(self.player1)}"
+    def attack_clicked(self, moves, movename):
+        self.desc1["text"] = f"{self.player1.attack(self.player2, moves, movename)}"
+        self.desc2["text"] = f"{self.player2.attack(self.player1, moves, movename)}"
 
         self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
         self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"

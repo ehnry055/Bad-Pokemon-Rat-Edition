@@ -1,8 +1,8 @@
-rat,35,55,40,90,yellowrat.gif, "scratch", "pound", "tackle", "flamethrower"
-Jim Carrey,78,84,78,100,JimCarrey.gif, "scratch", "pound", "tackle", "flamethrower"
-blue rat,100,50,80,50,bluerat.gif, "scratch", "pound", "tackle", "flamethrower"
-mewtwo,106,110,90,130,mewtwo.gif, "scratch", "pound", "tackle", "flamethrower"
-rattlebattletattlesaddle,40,80,35,70,rattlebattletattlesaddle.gif, "scratch", "pound", "tackle", "flamethrower"
-whooper,55,45,45,15,whooper.gif, "scratch", "pound", "tackle", "flamethrower"
-mr.Wang,120,120,120,120,mrwang.gif, "scratch", "pound", "tackle", "flamethrower"
-brendon,51,63,1,51,Brandon_Wan.gif, "scratch", "pound", "tackle", "flamethrower"
+rat,35,55,40,90,yellowrat.gif,scratch,pound,tackle,flamethrower
+Jim Carrey,78,84,78,100,JimCarrey.gif,scratch,pound,tackle,flamethrower
+blue rat,100,50,80,50,bluerat.gif,scratch,pound,tackle,flamethrower
+mewtwo,106,110,90,130,mewtwo.gif,scratch,pound,tackle,flamethrower
+rattlebattletattlesaddle,40,80,35,70,rattlebattletattlesaddle.gif,scratch,pound,tackle,flamethrower
+whooper,55,45,45,15,whooper.gif,scratch,pound,tackle,flamethrower
+mr.Wang,120,120,120,120,mrwang.gif,scratch,pound,tackle,flamethrower
+brendon,51,63,1,51,Brandon_Wan.gif,scratch,pound,tackle,flamethrower
