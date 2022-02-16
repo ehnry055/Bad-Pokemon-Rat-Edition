@@ -1,8 +1,8 @@
-rat,35,55,40,90,yellowrat.gif
-Jim Carrey,78,84,78,100,JimCarrey.gif
-blue rat,100,50,80,50,bluerat.gif
-mewtwo,106,110,90,130,mewtwo.gif
-rattlebattletattlesaddle,40,80,35,70,rattlebattletattlesaddle.gif
-whooper,55,45,45,15,whooper.gif
-mr.Wang,120,120,120,120,mrwang.gif
-brendon,51,63,1,51,Brandon_Wan.gif
+rat,35,55,40,90,yellowrat.gif,scratch
+Jim Carrey,78,84,78,100,JimCarrey.gif,scratch
+blue rat,100,50,80,50,bluerat.gif,scratch
+mewtwo,106,110,90,130,mewtwo.gif,scratch
+rattlebattletattlesaddle,40,80,35,70,rattlebattletattlesaddle.gif,scratch
+whooper,55,45,45,15,whooper.gif,scratch
+mr.Wang,120,120,120,120,mrwang.gif,scratch
+brendon,51,63,1,51,Brandon_Wan.gif,scratch
