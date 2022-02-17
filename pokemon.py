@@ -3,29 +3,27 @@ import random
 from setuptools import setup
 from moves import MovesRoster
 class Pokemon(object):
-    ''' 
-    The maximum dexterity of any character is 100.  
-    This value may be used in the attack() method to determine the likelihood of the Character hitting the enemy.
-    This is a class variable (shared among all Character objects), so it can be accessed with Character.MAX_DEXTERITY  
-    '''
-    MAX_DEXTERITY = 155
     
-    def __init__ (self, name, HP, Atk, Def, Speed, standard_image):
+    def __init__ (self, name, HP, Atk, Def, Speed, standard_image, move1, move2, move3, move4):
 
         self.name = name
         self.HP = HP
         self.Atk = Atk
         self.Def = Def
         self.Speed = Speed
+        self.Move1 = move1
+        self.Move2 = move2
+        self.Move3 = move3
+        self.Move4 = move4
         setup = MovesRoster("pokemonmoves.txt")
         self.Move = setup.moves_dict
 
         self.standard_image = standard_image
         
-    def attack(self, enemy):
-        damage = ((22 * self.Move[1] * (self.Atk / self.Def)) / 50) + 2
+    def attack(self, enemy, i, movename):
+        damage = ((22 * int(i) * (self.Atk / self.Def)) / 50) + 2
         enemy.HP -= damage 
-        return self.name + "uses" + self.Move[0] + "!"
+        return self.name + "uses" + movename + "!"
         
     def get_death_message(self):
         ''' Returns (NOT print) a death message. It should include self's name '''
@@ -52,7 +50,7 @@ class PokemonRoster(object):
         for line in text_file:
             line = line.strip()
             my_fields = line.split(",")
-            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]), (my_fields[5]))
+            character = Pokemon(my_fields[0], int(my_fields[1]), int(my_fields[2]), int(my_fields[3]), int(my_fields[4]), (my_fields[5]), (my_fields[6]), (my_fields[7]), (my_fields[8]), (my_fields[9]))
             self.character_list.append(character)
     
     def print_roster(self):
