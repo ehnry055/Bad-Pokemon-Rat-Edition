@@ -26,16 +26,16 @@ class PokemonBattle(Frame):
         '''
         
         self.button = Button(self, text = self.player1.Move1, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move1], self.player1.Move1) ) )
-        self.button.grid(row = 0, column = 1, sticky = N)
+        self.button.grid(row = 5, column = 1, sticky = N)
 
         self.button = Button(self, text = self.player1.Move2, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move2], self.player1.Move2) ) )
-        self.button.grid(row = 0, column = 2, sticky = N)
+        self.button.grid(row = 6, column = 1, sticky = N)
 
         self.button = Button(self, text = self.player1.Move3, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move3], self.player1.Move3) ) )
-        self.button.grid(row = 1, column = 1, sticky = N)
+        self.button.grid(row = 5, column = 2, sticky = N)
 
         self.button = Button(self, text = self.player1.Move4, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move4], self.player1.Move4) ) )
-        self.button.grid(row = 1, column = 2, sticky = N)
+        self.button.grid(row = 6, column = 2, sticky = N)
 
         Label(self, text = self.player1.name).grid(row = 3, column = 1, sticky = N)
         Label(self, text = self.player2.name).grid(row = 3, column = 2, sticky = N)
@@ -49,25 +49,25 @@ class PokemonBattle(Frame):
             character = PhotoImage(file="imagination/" + str(p.standard_image))
             image = Label(self, image = character, )
             image.photo = character
-            image.grid(row = 5, column = i, sticky = W)
+            image.grid(row = 3, column = i, sticky = W)
 
         self.totalhp1 = self.player1.HP
         self.totalhp2 = self.player2.HP
 
         self.hp1 = Label(self, text = f"{self.player1.HP}/{self.totalhp1} HP")
-        self.hp1.grid(row = 5, column = 1, sticky = N)
+        self.hp1.grid(row = 2, column = 1, sticky = N)
 
         self.hp2 = Label(self, text = f"{self.player2.HP}/{self.totalhp2} HP")
-        self.hp2.grid(row = 5, column = 2, sticky = N)
+        self.hp2.grid(row = 2, column = 2, sticky = N)
 
         self.desc1 = Label(self, text= "")
-        self.desc1.grid(row= 0, column = 2, sticky = N)
+        self.desc1.grid(row= 8, column = 2, sticky = N)
         
         self.desc2 = Label(self, text= "")
-        self.desc2.grid(row= 1, column = 2, sticky = N)
+        self.desc2.grid(row= 9, column = 2, sticky = N)
 
         self.winner = Label(self, text= "", fg = "Blue")
-        self.winner.grid(row= 2, column = 2, sticky = N)
+        self.winner.grid(row= 10, column = 2, sticky = N)
    
     def attack_clicked(self, moves, movename):
         self.desc1["text"] = f"{self.player1.attack(self.player2, moves, movename)}"
