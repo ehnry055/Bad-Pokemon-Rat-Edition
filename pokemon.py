@@ -1,5 +1,5 @@
 import random
-
+import math
 from setuptools import setup
 from moves import MovesRoster
 class Pokemon(object):
@@ -7,10 +7,10 @@ class Pokemon(object):
     def __init__ (self, name, HP, Atk, Def, Speed, standard_image, move1, move2, move3, move4):
 
         self.name = name
-        self.HP = HP
-        self.Atk = Atk
-        self.Def = Def
-        self.Speed = Speed
+        self.HP = math.floor((0.01*(2*HP)*50) + 50 + 10)
+        self.Atk = math.floor(0.01 * (2 * Atk * 50) + 5)
+        self.Def = math.floor(0.01 * (2 * Def * 50) + 5)
+        self.Speed = math.floor(0.01 * (2 * Speed * 50) + 5)
         self.Move1 = move1
         self.Move2 = move2
         self.Move3 = move3
@@ -21,7 +21,7 @@ class Pokemon(object):
         self.standard_image = standard_image
         
     def attack(self, enemy, i, movename):
-        damage = ((22 * int(i) * (self.Atk / self.Def)) / 50) + 2
+        damage = math.floor((((22*int(i)*(self.Atk/self.Def)) /50) + 2)*(random.randint(85, 100)/100))
         enemy.HP -= damage 
         return self.name + " uses " + movename + "!"
         
