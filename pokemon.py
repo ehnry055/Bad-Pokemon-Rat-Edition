@@ -23,7 +23,7 @@ class Pokemon(object):
     def attack(self, enemy, i, movename):
         damage = ((22 * int(i) * (self.Atk / self.Def)) / 50) + 2
         enemy.HP -= damage 
-        return self.name + "uses" + movename + "!"
+        return self.name + " uses " + movename + "!"
         
     def get_death_message(self):
         ''' Returns (NOT print) a death message. It should include self's name '''
