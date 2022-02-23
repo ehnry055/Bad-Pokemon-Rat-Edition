@@ -1,5 +1,5 @@
 import random
-import time
+from bag import PokeBag
 from tkinter import *
 from pokemon import Pokemon
 
@@ -22,23 +22,12 @@ class PokemonBattle(Frame):
         self.create_widgets()
         self.grid()
         
-    def create_widgets (self):
+    def create_widgets(self):
         '''
         This method creates all of the (initial) widgets for the battle page.
         '''
         
-        self.button = Button(self, text = self.player1.Move1, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move1], self.player1.Move1)))
-        self.button.grid(row = 5, column = 1, sticky = N)
-
-        self.button = Button(self, text = self.player1.Move2, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move2], self.player1.Move2)))
-
-        self.button.grid(row = 5, column = 2, sticky = N)
-
-        self.button = Button(self, text = self.player1.Move3, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move3], self.player1.Move3)))
-        self.button.grid(row = 6, column = 1, sticky = N)
-
-        self.button = Button(self, text = self.player1.Move4, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move4], self.player1.Move4)))
-        self.button.grid(row = 6, column = 2, sticky = N)
+        self.starting_menu()
 
         Label(self, text = self.player1.name+"\t lvl 50").grid(row = 0, column = 1, sticky = N)
         Label(self, text = self.player2.name+"\t lvl 50").grid(row = 0, column = 2, sticky = N)
@@ -71,6 +60,61 @@ class PokemonBattle(Frame):
 
         self.winner = Label(self, text= "", fg = "Blue")
         self.winner.grid(row= 10, column = 1, sticky = W)
+
+    def starting_menu(self):
+        self.option1 = Button(self, text = "Attack", command = (self.menu_attack))
+        self.option1.grid(row = 5, column = 1, sticky = N)
+
+        self.option2 = Button(self, text = "Bag", command = (self.menu_bag))
+        self.option2.grid(row = 5, column = 2, sticky = N)
+
+        self.option3 = Button(self, text = "Pokemon", command = (self.menu_select))
+        self.option3.grid(row = 6, column = 1, sticky = N)
+
+        self.option4 = Button(self, text = "Run", command = (self.menu_run))
+        self.option4.grid(row = 6, column = 2, sticky = N)
+
+    def menu_attack(self):
+        self.option1.destroy()
+        self.option2.destroy()
+        self.option3.destroy()
+        self.option4.destroy()
+
+        self.move1 = Button(self, text = self.player1.Move1, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move1], self.player1.Move1)))
+        self.move1.grid(row = 5, column = 1, sticky = N)
+
+        self.move2 = Button(self, text = self.player1.Move2, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move2], self.player1.Move2)))
+        self.move2.grid(row = 5, column = 2, sticky = N)
+
+        self.move3 = Button(self, text = self.player1.Move3, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move3], self.player1.Move3)))
+        self.move3.grid(row = 6, column = 1, sticky = N)
+
+        self.move4 = Button(self, text = self.player1.Move4, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move4], self.player1.Move4)))
+        self.move4.grid(row = 6, column = 2, sticky = N)
+
+        self.back = Button(self, text = "Back", fg = "Red", command = (self.back))
+        self.back.grid(row = 9, column = 2, sticky = E)
+
+    def back(self):
+        self.move1.destroy()
+        self.move2.destroy()
+        self.move3.destroy()
+        self.move4.destroy()
+        self.back.destroy()
+
+        self.starting_menu()
+
+    def menu_bag(self):
+
+        #self.root.title("Bag")
+        #self.current_screen = PokeBag(master = self.root, end = self.end)
+        pass
+
+    def menu_select(self):
+        pass
+
+    def menu_run(self):
+        pass
    
     def attack_clicked(self, moves, movename):
         if self.player1.Speed >= self.player2.Speed:
@@ -116,7 +160,7 @@ class PokemonBattle(Frame):
                 self.winner["text"] = f"{first.name} fainted!"
         
             
-                Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = E)
+                Button(self, text = "Exit", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = E)
 
     def exit_clicked(self):
         ''' This method is called when the Exit button is clicked. 
