@@ -92,15 +92,15 @@ class PokemonBattle(Frame):
         self.move4 = Button(self, text = self.player1.Move4, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move4], self.player1.Move4)))
         self.move4.grid(row = 6, column = 2, sticky = N)
 
-        self.back = Button(self, text = "Back", fg = "Red", command = (self.back))
-        self.back.grid(row = 9, column = 2, sticky = E)
+        self.back_button = Button(self, text = "Back", fg = "Red", command = (self.back))
+        self.back_button.grid(row = 9, column = 2, sticky = E)
 
     def back(self):
         self.move1.destroy()
         self.move2.destroy()
         self.move3.destroy()
         self.move4.destroy()
-        self.back.destroy()
+        self.back_button.destroy()
 
         self.starting_menu()
 
