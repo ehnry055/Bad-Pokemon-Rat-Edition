@@ -45,7 +45,6 @@ class PokemonBattle(Frame):
             image.grid(row = 1, column = i, padx= (75, 75), sticky = W)
 
         self.hp1 = Label(self, text = f"{self.player1.HP}/{self.totalhp1} HP")
-
         self.hp1.grid(row = 3, column = 1, sticky = N)
 
         self.hp2 = Label(self, text = f"{self.player2.HP}/{self.totalhp2} HP")
@@ -118,27 +117,17 @@ class PokemonBattle(Frame):
    
     def attack_clicked(self, moves, movename):
         if self.player1.Speed >= self.player2.Speed:
-            first = self.player1
-            second = self.player2
-            totalhpfirst = self.totalhp1
-            totalhpsecond = self.totalhp2
-            firstdesc = self.desc1
-            firsthp = self.hp1
-            seconddesc = self.desc2
-            secondhp = self.hp2
+            player1_attack(self, moves, movename)
+            player2_attack()
         else:
-            first = self.player2
-            second = self.player1
-            totalhpfirst = self.totalhp2
-            totalhpsecond = self.totalhp1
-            firstdesc = self.desc2
-            firsthp = self.hp2
-            seconddesc = self.desc1
-            secondhp = self.hp1
 
-        firstdesc["text"] = f"{first.attack(second, moves, movename)}"
+        
 
-        if second.HP <= 0:
+
+        def player1_attack(self, moves, movename):
+            self.desc1["text"] = f"{first.attack(second, moves, movename)}"
+
+            if second.HP <= 0:
                 second.HP = 0
                 seconddesc["text"] = ""
                 secondhp["text"] = f"{second.HP}/{totalhpsecond} HP"
@@ -146,8 +135,10 @@ class PokemonBattle(Frame):
                 self.winner["text"] = f"{second.name} fainted!"
 
                 Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = N)
-        else:
-            secondhp["text"] = f"{second.HP}/{totalhpsecond} HP"
+            else:
+                secondhp["text"] = f"{second.HP}/{totalhpsecond} HP"
+
+        def player2_attack(self):
             moves_name_list = [second.Move1, second.Move2, second.Move3, second.Move4]
             number = random.randint(0, 3)
             seconddesc["text"] = f"{second.attack(first, self.Move[moves_name_list[number]], moves_name_list[number])}"
@@ -161,6 +152,7 @@ class PokemonBattle(Frame):
                 Button(self, text = "Exit", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = E)
 
             firsthp["text"] = f"{first.HP}/{totalhpfirst} HP"
+
 
     def exit_clicked(self):
         ''' This method is called when the Exit button is clicked. 
