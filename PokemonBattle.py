@@ -128,14 +128,13 @@ class PokemonBattle(Frame):
         self.winner["text"] = ""
         self.ok.destroy()
         self.starting_menu()
-
-   
+    
     def attack_clicked(self, moves, movename):
 
         def player1_attack(self, moves, movename):
             self.desc1["text"] = f"{self.player1.attack(self.player2, moves, movename)}"
 
-            if self.player2.HP <= 0:
+            if self.player2.HP <= 0 and self.player1.HP != 0:
                 self.player2.HP = 0
                 self.desc2["text"] = ""
                 self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
@@ -143,6 +142,7 @@ class PokemonBattle(Frame):
                 self.winner["text"] = f"{self.player2.name} fainted!"
 
                 Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = N)
+
             else:
                 self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
 
@@ -151,7 +151,7 @@ class PokemonBattle(Frame):
             number = random.randint(0, 3)
             self.desc2["text"] = f"{self.player2.attack(self.player1, self.Move[moves_name_list[number]], moves_name_list[number])}"
 
-            if self.player1.HP <= 0:
+            if self.player1.HP <= 0 and self.player2.HP != 0:
                 self.player1.HP = 0
                 self.desc1["text"] = ""
                 self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
