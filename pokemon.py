@@ -7,10 +7,10 @@ class Pokemon(object):
     def __init__ (self, name, HP, Atk, Def, Speed, standard_image, move1, move2, move3, move4):
 
         self.name = name
-        self.HP = math.floor((0.01*(2*HP)*50) + 50 + 10)
-        self.Atk = math.floor(0.01 * (2 * Atk * 50) + 5)
-        self.Def = math.floor(0.01 * (2 * Def * 50) + 5)
-        self.Speed = math.floor(0.01 * (2 * Speed * 50) + 5)
+        self.HP = math.floor((0.01*(2*HP)*100) + 100 + 10)
+        self.Atk = math.floor(0.01 * (2 * Atk * 100) + 5)
+        self.Def = math.floor(0.01 * (2 * Def * 100) + 5)
+        self.Speed = math.floor(0.01 * (2 * Speed * 100) + 5)
         self.Move1 = move1
         self.Move2 = move2
         self.Move3 = move3

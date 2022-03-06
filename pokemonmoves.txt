@@ -2,3 +2,17 @@ scratch, 40,
 pound, 40,
 tackle, 40,
 flamethrower, 90
+cut, 50
+psychic, 90
+body slam, 85
+thunderbolt, 90
+blizzard, 110
+iron tail, 100
+hydro pump, 110
+low sweep, 65
+aerial ace, 65
+focus blast, 120
+energy ball, 90
+stone edge, 100
+poison jab, 80
+swift, 60

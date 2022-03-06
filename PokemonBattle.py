@@ -1,4 +1,4 @@
-import time
+import math
 import random
 from bag import PokeBag
 from tkinter import *
@@ -30,8 +30,8 @@ class PokemonBattle(Frame):
         
         self.starting_menu()
 
-        Label(self, text = self.player1.name+"\t lvl 50").grid(row = 0, column = 1, sticky = N)
-        Label(self, text = self.player2.name+"\t lvl 50").grid(row = 0, column = 2, sticky = N)
+        Label(self, text = self.player1.name+"\t lvl 100").grid(row = 0, column = 1, sticky = N)
+        Label(self, text = self.player2.name+"\t lvl 100").grid(row = 0, column = 2, sticky = N)
 
         for i in range(1, 3):
             if i == 1:
@@ -74,11 +74,14 @@ class PokemonBattle(Frame):
         self.option4 = Button(self, text = "Run", command = (self.menu_run))
         self.option4.grid(row = 6, column = 2, sticky = N)
 
-    def menu_attack(self):
+    def option_destroy(self):
         self.option1.destroy()
         self.option2.destroy()
         self.option3.destroy()
         self.option4.destroy()
+
+    def menu_attack(self):
+        self.option_destroy()
 
         self.move1 = Button(self, text = self.player1.Move1, fg = "Red", command = (lambda : self.attack_clicked(self.Move[self.player1.Move1], self.player1.Move1)))
         self.move1.grid(row = 5, column = 1, sticky = N)
@@ -103,31 +106,51 @@ class PokemonBattle(Frame):
         self.back_button.destroy()
 
         self.starting_menu()
-
+    
     def menu_bag(self):
+        self.option_destroy()
 
-        #self.root.title("Bag")
-        #self.current_screen = PokeBag(master = self.root, end = self.end)
-        pass
+        self.move1 = Button(self, text = "Poke Ball", fg = "Purple", command = (self.throw_pokeball(1)))
+        self.move1.grid(row = 5, column = 1, sticky = N)
+
+        self.move2 = Button(self, text = "Great Ball", fg = "Purple", command = (self.throw_pokeball(1.5)))
+        self.move2.grid(row = 5, column = 2, sticky = N)
+
+        self.move3 = Button(self, text = "Ultra Ball", fg = "Purple", command = (self.throw_pokeball(2)))
+        self.move3.grid(row = 6, column = 1, sticky = N)
+
+        self.move4 = Button(self, text = "Master Ball", fg = "Purple", command = (self.throw_pokeball(255)))
+        self.move4.grid(row = 6, column = 2, sticky = N)
+
+        self.back_button = Button(self, text = "Back", fg = "Red", command = (self.back))
+        self.back_button.grid(row = 9, column = 2, sticky = E)
+
+    def throw_pokeball(self, number):
+        a = math.floor(((3*self.totalhp2 - 2*self.player2.HP)*45*number)/(3*self.totalhp2))
+
+        if number == 255:
+            a = 255
+
+        List = [0, 1]
+        probability = random.choices(List, weights=(255-a, a), k=1)
+        #if probability == 1: 
+            #self.winner["text"] = f"Gotcha! {self.player2.name} was caught!"
+            #b = self.ok
+            #b.grid(row = 9, column = 2, sticky = E)
+        #else:
+            #self.winner["text"] = "Oh no! The pokemon broke free!"
+            #self.option_destroy()
+            #self.starting_menu()
 
     def menu_select(self):
         pass
 
     def menu_run(self):
-        self.option1.destroy()
-        self.option2.destroy()
-        self.option3.destroy()
-        self.option4.destroy()
+        self.option_destroy()
+        self.winner["text"] = "Okay bye"
 
-        self.winner["text"] = "There's no running away in a trainer battle!"
-
-        self.ok = Button(self, text = "Back", fg = "Red", command = (self.other_ok))
+        self.ok = Button(self, text = "Quit", fg = "Red", command = (self.exit_clicked))
         self.ok.grid(row = 9, column = 2, sticky = E)
-
-    def other_ok(self):
-        self.winner["text"] = ""
-        self.ok.destroy()
-        self.starting_menu()
     
     def attack_clicked(self, moves, movename):
 
@@ -141,7 +164,7 @@ class PokemonBattle(Frame):
 
                 self.winner["text"] = f"{self.player2.name} fainted!"
 
-                Button(self, text = "Exit!", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = N)
+                Button(self, text = "Quit", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = N)
 
             else:
                 self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
@@ -157,7 +180,7 @@ class PokemonBattle(Frame):
                 self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
                 self.winner["text"] = f"{self.player1.name} fainted!"
             
-                Button(self, text = "Exit", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = E)
+                Button(self, text = "Quit", fg = "Red", command = self.exit_clicked).grid(row = 9, column = 2, sticky = E)
 
             self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
         
