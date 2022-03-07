@@ -24,25 +24,26 @@ class PokemonBattle(Frame):
         self.starting_menu()
 
         Label(self, text = self.player1.name+"\t lvl 100").grid(row = 0, column = 1, sticky = N)
-        Label(self, text = self.player2.name+"\t lvl 100").grid(row = 0, column = 2, sticky = N)
+        Label(self, text = self.player2.name+"\t lvl 100").grid(row = 0, column = 3, sticky = N)
 
-        for i in range(1, 3):
-            if i == 1:
-                p = self.player1
-            else:
-                p = self.player2
+        for i in range(1, 4):
+            if i != 2:
+                if i == 1:
+                    p = self.player1
+                else:
+                    p = self.player2
 
-            character = PhotoImage(file="imagination/" + str(p.standard_image))
-            image = Label(self, image = character, )
-            image.photo = character
+                character = PhotoImage(file="imagination/" + str(p.standard_image))
+                image = Label(self, image = character, )
+                image.photo = character
 
-            image.grid(row = 1, column = i, padx= (75, 75), sticky = W)
+                image.grid(row = 1, column = i, padx= (75, 75), sticky = W)
 
         self.hp1 = Label(self, text = f"{self.player1.HP}/{self.totalhp1} HP")
         self.hp1.grid(row = 3, column = 1, sticky = N)
 
         self.hp2 = Label(self, text = f"{self.player2.HP}/{self.totalhp2} HP")
-        self.hp2.grid(row = 3, column = 2, sticky = N)
+        self.hp2.grid(row = 3, column = 3, sticky = N)
 
 
         self.desc1 = Label(self, text= "")
