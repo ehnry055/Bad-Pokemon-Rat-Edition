@@ -1,32 +1,25 @@
 import math
 import random
-from bag import PokeBag
 from tkinter import *
 from pokemon import Pokemon
 
 class PokemonBattle(Frame):
     def __init__ (self, master, player1, player2, Move, callback_on_exit):
         super().__init__(master)
-
-        # Save references to the two player objects
+       
         self.player1 = player1
         self.player2 = player2
         self.Move = Move.moves_dict
-
-        # Store the maximum number of hit points which are needed on the screen display.
+        
         self.totalhp1 = player1.HP
         self.totalhp2 = player2.HP
 
-        # Save the method reference to which we return control after this page Exits.
         self.callback_on_exit = callback_on_exit
 
         self.create_widgets()
         self.grid()
         
     def create_widgets(self):
-        '''
-        This method creates all of the (initial) widgets for the battle page.
-        '''
         
         self.starting_menu()
 
@@ -170,6 +163,10 @@ class PokemonBattle(Frame):
 
             if self.player2.HP <= 0 and self.player1.HP != 0:
                 self.player2.HP = 0
+                self.move1.destroy()
+                self.move2.destroy()
+                self.move3.destroy()
+                self.move4.destroy()
                 self.desc2["text"] = ""
                 self.hp2["text"] = f"{self.player2.HP}/{self.totalhp2} HP"
 
@@ -187,6 +184,10 @@ class PokemonBattle(Frame):
 
             if self.player1.HP <= 0 and self.player2.HP != 0:
                 self.player1.HP = 0
+                self.move1.destroy()
+                self.move2.destroy()
+                self.move3.destroy()
+                self.move4.destroy()
                 self.desc1["text"] = ""
                 self.hp1["text"] = f"{self.player1.HP}/{self.totalhp1} HP"
                 self.winner["text"] = f"{self.player1.name} fainted!"
@@ -204,6 +205,4 @@ class PokemonBattle(Frame):
 
 
     def exit_clicked(self):
-        ''' This method is called when the Exit button is clicked. 
-            It passes control back to the callback method. '''        
         self.callback_on_exit()
