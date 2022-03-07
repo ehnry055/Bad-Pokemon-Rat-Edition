@@ -20,10 +20,8 @@ class BattleManager(object):
         
         self.character_roster = PokemonRoster("digimon.txt")
         self.movesdict = MovesRoster("pokemonmoves.txt")
-        '''
-        This method is called to set up the Character Selection screen. 
-        This also initializes the character_roster property.
-        '''
+        
+
         # Changes the window's title
         self.root.title ("Select your character!")
         # Reads battle_characters.txt to create a CharacterRoster.
@@ -49,7 +47,7 @@ class BattleManager(object):
 
 
     def setup_battle(self):
-        ''' This method is called to set up the Battle screen. '''
+
         # Changes the window's title
         self.root.title ("Battle!")
 
@@ -57,10 +55,6 @@ class BattleManager(object):
         self.current_screen = PokemonBattle(master= self.root, player1 = self.player, player2 = self.computer, Move = self.movesdict, callback_on_exit = self.onclose_battle)
 
     def onclose_battle (self):
-        ''' 
-        This method is called when the user presses the finishing button on the Battle screen, 
-        after the battle is done.  This method closes the entire window, causing the program to exit.
-        '''
 
         # Destroy the entire program's window, which includes the Battle screen.
         self.root.destroy()
