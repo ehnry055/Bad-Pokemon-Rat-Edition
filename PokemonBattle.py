@@ -134,12 +134,15 @@ class PokemonBattle(Frame):
             BigList.append(2)
             x += 1
 
-        print(BigList)
 
         probability = random.randint(0, 255)
 
         if BigList[probability] == 1: 
             self.winner["text"] = f"Gotcha! {self.player2.name} was caught!"
+            self.move1.destroy()
+            self.move2.destroy()
+            self.move3.destroy()
+            self.move4.destroy()
             self.back_button.destroy()
             self.ok = Button(self, text = "Quit", fg = "Red", command = (self.exit_clicked))
             self.ok.grid(row = 9, column = 2, sticky = E)
