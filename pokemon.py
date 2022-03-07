@@ -1,6 +1,5 @@
 import random
 import math
-from setuptools import setup
 from moves import MovesRoster
 class Pokemon(object):
     
