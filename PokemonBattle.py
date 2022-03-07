@@ -110,16 +110,16 @@ class PokemonBattle(Frame):
     def menu_bag(self):
         self.option_destroy()
 
-        self.move1 = Button(self, text = "Poke Ball", fg = "Purple", command = (self.throw_pokeball(1)))
+        self.move1 = Button(self, text = "Poke Ball", fg = "Purple", command = (lambda : self.throw_pokeball(1)))
         self.move1.grid(row = 5, column = 1, sticky = N)
 
-        self.move2 = Button(self, text = "Great Ball", fg = "Purple", command = (self.throw_pokeball(1.5)))
+        self.move2 = Button(self, text = "Great Ball", fg = "Purple", command = (lambda : self.throw_pokeball(1.5)))
         self.move2.grid(row = 5, column = 2, sticky = N)
 
-        self.move3 = Button(self, text = "Ultra Ball", fg = "Purple", command = (self.throw_pokeball(2)))
+        self.move3 = Button(self, text = "Ultra Ball", fg = "Purple", command = (lambda : self.throw_pokeball(2)))
         self.move3.grid(row = 6, column = 1, sticky = N)
 
-        self.move4 = Button(self, text = "Master Ball", fg = "Purple", command = (self.throw_pokeball(255)))
+        self.move4 = Button(self, text = "Master Ball", fg = "Purple", command = (lambda : self.throw_pokeball(255)))
         self.move4.grid(row = 6, column = 2, sticky = N)
 
         self.back_button = Button(self, text = "Back", fg = "Red", command = (self.back))
@@ -131,16 +131,27 @@ class PokemonBattle(Frame):
         if number == 255:
             a = 255
 
-        List = [0, 1]
-        probability = random.choices(List, weights=(255-a, a), k=1)
-        #if probability == 1: 
-            #self.winner["text"] = f"Gotcha! {self.player2.name} was caught!"
-            #b = self.ok
-            #b.grid(row = 9, column = 2, sticky = E)
-        #else:
-            #self.winner["text"] = "Oh no! The pokemon broke free!"
-            #self.option_destroy()
-            #self.starting_menu()
+        BigList = []
+        x = 0
+
+        while x != a:
+            BigList.append(1)
+            x += 1
+        while x != 255:
+            BigList.append(2)
+            x += 1
+
+        print(BigList)
+
+        probability = random.randint(0, 255)
+
+        if BigList[probability] == 1: 
+            self.winner["text"] = f"Gotcha! {self.player2.name} was caught!"
+            self.back_button.destroy()
+            self.ok = Button(self, text = "Quit", fg = "Red", command = (self.exit_clicked))
+            self.ok.grid(row = 9, column = 2, sticky = E)
+        else:
+            self.winner["text"] = "Oh no! The pokemon broke free!"
 
     def menu_select(self):
         pass

@@ -4,5 +4,5 @@ blue rat,100,50,80,50,bluerat.gif,stone edge,hydro pump,blizzard,iron tail
 mewtwo,106,110,90,130,mewtwo.gif,psychic,hyper beam,thunderbolt,swift
 rattlebattletattlesaddle,40,80,35,70,rattlebattletattlesaddle.gif,poison jab,scratch,focusblast,energy ball
 whooper,55,45,45,15,whooper.gif,thunderbolt,tackle,flamethrower,hydro pump
-mr.Wang,120,120,120,120,mrwang.gif,hyper beam,thuderbolt,blizzard,flamethrower
+mr.Wang,120,120,120,120,mrwang.gif,hyper beam,thunderbolt,blizzard,flamethrower
 brendon,51,63,1,51,Brandon_Wan.gif,hydro pump,iron tail,aerial ace,low sweep

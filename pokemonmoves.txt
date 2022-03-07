@@ -16,3 +16,4 @@ energy ball, 90
 stone edge, 100
 poison jab, 80
 swift, 60
+hyper beam, 150
